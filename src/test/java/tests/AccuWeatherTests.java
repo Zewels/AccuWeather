@@ -3,6 +3,9 @@ package tests;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -14,6 +17,9 @@ public class AccuWeatherTests {
     private final String API_KEY = "j51jsHhKnXfPBNMyhnx4Fto0C1c6qEn6";
 
     @Test
+    @Feature("Weather Feature")
+    @Story("Check current weather")
+    @Description("Verify that the current weather is displayed correctly")
     public void testCitySearch() {
         String cityName = "London";
 
@@ -30,6 +36,9 @@ public class AccuWeatherTests {
     }
 
     @Test
+    @Feature("Weather Feature")
+    @Story("Geoposition Search")
+    @Description("Verify that geoposition search returns the expected location")
     public void testGeopositionSearch() {
         String coordinates = "51.5074,-0.1278"; // Координаты Лондона
 
@@ -45,6 +54,9 @@ public class AccuWeatherTests {
     }
 
     @Test
+    @Feature("Weather Feature")
+    @Story("Daily Forecast")
+    @Description("Verify the daily forecast endpoint for 1 day")
     public void testDailyForecast1Day() {
         String locationKey = "328328"; // Код локации для Лондона
 
@@ -60,6 +72,9 @@ public class AccuWeatherTests {
     }
 
     @Test
+    @Feature("Weather Feature")
+    @Story("Hourly Forecast")
+    @Description("Verify the hourly forecast endpoint for 12 hours")
     public void testHourlyForecast12Hours() {
         String locationKey = "328328"; // Код локации для Лондона
 
@@ -75,6 +90,9 @@ public class AccuWeatherTests {
     }
 
     @Test
+    @Feature("Weather Feature")
+    @Story("Current Conditions")
+    @Description("Verify the current conditions endpoint")
     public void testCurrentConditions() {
         String locationKey = "328328"; // Код локации для Лондона
 
@@ -89,6 +107,9 @@ public class AccuWeatherTests {
     }
 
     @Test
+    @Feature("Weather Feature")
+    @Story("Top Cities")
+    @Description("Verify the top cities endpoint")
     public void testTopCities() {
         int count = 5;
 
@@ -103,6 +124,9 @@ public class AccuWeatherTests {
     }
     
     @Test
+    @Feature("Weather Feature")
+    @Story("Astronomy Data")
+    @Description("Verify the astronomy data endpoint")
     public void testAstronomy() {
         String locationKey = "328328"; // Код Лондона
 
